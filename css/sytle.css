@@ -1,0 +1,37 @@
+body{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #918d83;
+}
+
+h1{
+    font-family: 'Shadows Into Light', cursive;
+    color: #786e54;
+    font-size: 60pt;
+}
+
+h3 {
+    font-family: 'Shadows Into Light', cursive;
+    color: #786e54;
+    font-size: 40pt;
+}
+
+table{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #3D4849;
+}
+
+.hours {
+    display: inline-block;
+    width: 300px;
+    height: 700px;
+    float: left;
+    
+}
+
+.location{
+    display: inline-block;
+    width: 500px;
+    height: 400px;
+}
+
+
