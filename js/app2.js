@@ -19,14 +19,14 @@ function CreateStore(name, minCustomer, maxCustomer, avgCookie) {
 
 }
 
-
+//this needs work.
 CreateStore.prototype.cookiesEachHour = function () {
   for (var i = 0; i < hours.length; i++) {
      var hourlyCookies = this.avgCookie * this.customersEachHour[i];
      hourlyCookies = Math.round(hourlyCookies);
   }
 };
-console.log(this.cookiesEachHour);
+console.log(CreateStore.prototype.cookiesEachHour);
 
 CreateStore.prototype.randomNumber = function (min, max) {
   return Math.round(Math.floor(Math.random() * (max - min)) + min);
