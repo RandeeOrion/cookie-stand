@@ -1,4 +1,4 @@
-'us strict';
+'use strict';
 
 var seattle = document.getElementById('storeSales');
 
