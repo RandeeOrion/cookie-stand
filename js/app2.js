@@ -4,6 +4,8 @@ var tableLocation = document.getElementById('storeSales');
 var allStores = [];
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+
+
 function CreateStore(name, minCustomer, maxCustomer, avgCookie) {
   this.name = name;
   // console.log(name);
@@ -50,9 +52,9 @@ CreateStore.prototype.calCustomersEachHour = function () {
 new CreateStore('Seattle', 23, 65, 6.3);
 new CreateStore('Tokyo', 3, 24, 1.2);
 new CreateStore('Dubai', 11, 38, 3.7);
-new CreateStore('Lima', 2, 16,4.6);
+new CreateStore('Lima', 2, 16, 4.6);
 
-function generateTableHeader(){
+function generateTableHeader() {
   //make a tr
   var trEl = document.createElement('tr');
   //make a td filled with Name and append to tr
@@ -60,8 +62,8 @@ function generateTableHeader(){
   tdEl.textContent = 'Store Name';
   trEl.appendChild(tdEl);
   //make a loop to create th for each hour and append to tr
-  for (var i = 0; i < hours.length; i++){
-    var thEl  = document.createElement('th');
+  for (var i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
@@ -72,13 +74,13 @@ function generateTableHeader(){
   tableLocation.appendChild(trEl);
 }
 
-CreateStore.prototype.generateTableBody = function(){
+CreateStore.prototype.generateTableBody = function () {
   //create tr append to table
   var trEl = document.createElement('tr');
   tableLocation.appendChild(trEl);
   //create a td fill with this.name and append to tr
   var tdEl = document.createElement('td');
-  tdEl.textContent=this.name;
+  tdEl.textContent = this.name;
   trEl.appendChild(tdEl);
   //create a for loop over this.cookiesSoldEachHour create a td and fill with cookiesSoldEachHour[i] then append to tr
   for (var i = 0; i < hours.length; i++) {
@@ -91,33 +93,33 @@ CreateStore.prototype.generateTableBody = function(){
   tdEl.textContent = this.totalCookiesForTheDay;
   trEl.appendChild(tdEl);
 
-};
+}
 
 generateTableHeader();
 
+for (var i = 0; i < allStores.length; i++) {
+  allStores[i].generateTableBody();
+}
 
-// //tablefooter
-// //run through each hour.length
-// function createFooter(){
-//   var trEl = document.createElement('tr');
-//   var tdEl = document.createElement('td');
-//   tdEl = document.textContent = 'Hourly Totals';
-//   trEl.appendChild(tdEl);
-//   for (var i = 0; i < hours.length; i++ ){
-//     var hourlyTotalsEquals = 0
-//     tdEl = document.createElement('td');
-//     //run through allStores.length
-//     for (var j = 0; j < allStores.length; i++){
-//     //add each i for each j
-//       hourlyTotalsEquals += CreateStore.allStores[j].cookiesSoldEachHour[i];
-//       tdEl.textContent = hourlyTotalsEquals;
-//       trEl.appendChild(tdEl);
-//     }
-//   }
-//   tableLocation.appendChild(trEl);
-// }
+//bookmark the DOM at userForm and addEventListener 
 
-// createFooter();
+
+
+var formLocation = document.getElementById('userForm');
+formLocation.addEventListener("submit", handleSubmit);
+
+//take in the form submissions
+function handleSubmit(event) {
+  event.preventDefault();
+  var newName = event.target.newStoreName.value;
+  var newMinCust = parseInt(event.target.formMinCustomers.value, 10);
+  var newMaxCust = parseInt(event.target.formMaxCustomers.value, 10);
+  var newAvgCookie = parseInt
+  (event.target.formAvgCookie.value, 10);
+  new CreateStore(newName, newMinCust, newMaxCust, newAvgCookie);
+}
+//use form Submissions  as arguments for this.generateTableBody
+
 
 
 
