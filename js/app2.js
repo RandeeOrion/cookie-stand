@@ -18,19 +18,11 @@ function CreateStore(name, minCustomer, maxCustomer, avgCookie) {
   this.calCustomersEachHour();
   this.calcCookiesSoldEachHour();
   allStores.push(this);
+
+  this.generateTableBody();
 }
 
 //this needs work.
-CreateStore.prototype.calcCookiesSoldEachHour = function () {
-  for (var i = 0; i < hours.length; i++) {
-    var cookiesForOneHour = this.avgCookie * this.customersEachHour[i];
-    cookiesForOneHour = Math.round(cookiesForOneHour);
-    this.cookiesSoldEachHour.push(cookiesForOneHour);
-
-    this.totalCookiesForTheDay += cookiesForOneHour;
-
-  }
-};
 
 
 function randomNumber(min, max) {
@@ -48,11 +40,17 @@ CreateStore.prototype.calCustomersEachHour = function () {
   }
 };
 
+CreateStore.prototype.calcCookiesSoldEachHour = function () {
+  for (var i = 0; i < hours.length; i++) {
+    var cookiesForOneHour = this.avgCookie * this.customersEachHour[i];
+    cookiesForOneHour = Math.round(cookiesForOneHour);
+    this.cookiesSoldEachHour.push(cookiesForOneHour);
 
-new CreateStore('Seattle', 23, 65, 6.3);
-new CreateStore('Tokyo', 3, 24, 1.2);
-new CreateStore('Dubai', 11, 38, 3.7);
-new CreateStore('Lima', 2, 16, 4.6);
+    this.totalCookiesForTheDay += cookiesForOneHour;
+
+  }
+};
+
 
 function generateTableHeader() {
   //make a tr
@@ -92,8 +90,13 @@ CreateStore.prototype.generateTableBody = function () {
   tdEl = document.createElement('td');
   tdEl.textContent = this.totalCookiesForTheDay;
   trEl.appendChild(tdEl);
-
+  
 }
+
+new CreateStore('Seattle', 23, 65, 6.3);
+new CreateStore('Tokyo', 3, 24, 1.2);
+new CreateStore('Dubai', 11, 38, 3.7);
+new CreateStore('Lima', 2, 16, 4.6);
 
 generateTableHeader();
 
@@ -114,9 +117,10 @@ function handleSubmit(event) {
   var newName = event.target.newStoreName.value;
   var newMinCust = parseInt(event.target.formMinCustomers.value, 10);
   var newMaxCust = parseInt(event.target.formMaxCustomers.value, 10);
-  var newAvgCookie = parseInt
-  (event.target.formAvgCookie.value, 10);
+  var newAvgCookie = parseInt(event.target.formAvgCookie.value, 10);
+  console.log ('type of newAvgCookie', typeof newAvgCookie);
   new CreateStore(newName, newMinCust, newMaxCust, newAvgCookie);
+  console.log (new CreateStore);
 }
 //use form Submissions  as arguments for this.generateTableBody
 
