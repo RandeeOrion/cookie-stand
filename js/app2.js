@@ -29,6 +29,12 @@ function randomNumber(min, max) {
   return Math.round(Math.floor(Math.random() * (max - min)) + min);
 }
 
+function addElement (childElType, childContent, parentEl) {
+  var childElement = document.createElement(childElement);
+  var childContent = 
+  //Need the rest o this from front row
+}
+
 CreateStore.prototype.calCustomersEachHour = function () {
   //generate a random number
   //store it in its array
@@ -72,6 +78,8 @@ function generateTableHeader() {
   tableLocation.appendChild(trEl);
 }
 
+generateTableHeader();
+
 CreateStore.prototype.generateTableBody = function () {
   //create tr append to table
   var trEl = document.createElement('tr');
@@ -98,11 +106,10 @@ new CreateStore('Tokyo', 3, 24, 1.2);
 new CreateStore('Dubai', 11, 38, 3.7);
 new CreateStore('Lima', 2, 16, 4.6);
 
-generateTableHeader();
 
-for (var i = 0; i < allStores.length; i++) {
-  allStores[i].generateTableBody();
-}
+// for (var i = 0; i < allStores.length; i++) {
+//   allStores[i].generateTableBody();
+// }
 
 //bookmark the DOM at userForm and addEventListener 
 
@@ -112,6 +119,7 @@ var formLocation = document.getElementById('userForm');
 formLocation.addEventListener("submit", handleSubmit);
 
 //take in the form submissions
+//
 function handleSubmit(event) {
   event.preventDefault();
   var newName = event.target.newStoreName.value;
@@ -121,11 +129,13 @@ function handleSubmit(event) {
   console.log ('type of newAvgCookie', typeof newAvgCookie);
   new CreateStore(newName, newMinCust, newMaxCust, newAvgCookie);
   console.log (new CreateStore);
+
+  formLocation.reset();
 }
 //use form Submissions  as arguments for this.generateTableBody
 
 
-
+// create if else to create alerts if boxes are empty or not filled properly can also create an iff statment to input a positive number  minCust < 0 || maxCust < 0 || avgCust < 0 
 
 
 
