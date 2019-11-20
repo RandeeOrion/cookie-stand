@@ -116,7 +116,7 @@ new CreateStore('Lima', 2, 16, 4.6);
 
 
 var formLocation = document.getElementById('userForm');
-formLocation.addEventListener("submit", handleSubmit);
+formLocation.addEventListener('submit', handleSubmit);
 
 //take in the form submissions
 //
@@ -126,9 +126,9 @@ function handleSubmit(event) {
   var newMinCust = parseInt(event.target.formMinCustomers.value, 10);
   var newMaxCust = parseInt(event.target.formMaxCustomers.value, 10);
   var newAvgCookie = parseInt(event.target.formAvgCookie.value, 10);
-  console.log ('type of newAvgCookie', typeof newAvgCookie);
+  //console.log ('type of newAvgCookie', typeof newAvgCookie);
   new CreateStore(newName, newMinCust, newMaxCust, newAvgCookie);
-  console.log (new CreateStore);
+  //console.log (new CreateStore);
 
   formLocation.reset();
 }
