@@ -4,6 +4,14 @@ body{
     background: #f8f8ff;
 }
 
+.logo{
+    margin: 0px auto;
+    width: 960px;
+    display: inline-block;
+    background-color: white;
+    text-align: center;
+}
+
 h1{
     font-family: 'Shadows Into Light', cursive;
     color: #786e54;
@@ -14,6 +22,11 @@ h3 {
     font-family: 'Shadows Into Light', cursive;
     color: #786e54;
     font-size: 40pt;
+}
+
+main {
+    padding: 10px;
+    margin: 5px;
 }
 
 
@@ -34,13 +47,30 @@ h3 {
     height: 400px;
 }
 
-#navBar {
-    display: block;
-    width: 40px;
-    backgound: #786e54;
+ul {
+    margin: 10px auto 20px auto;
+}
+
+li {
+    display: inline-block;
+    width: 100px;
+    background-color: #786e54;
     font-size: 16px;
     color: #3D4849;
+    padding: 7px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 1em;
 }
+
+a:visited {
+    color: white;
+}
+
+a:active {
+    background-color: #31270D;
+}
+/* why is this not work?! */
                 
 table{
     font-family: Verdana, Geneva,

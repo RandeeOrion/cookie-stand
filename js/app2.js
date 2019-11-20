@@ -105,6 +105,7 @@ new CreateStore('Seattle', 23, 65, 6.3);
 new CreateStore('Tokyo', 3, 24, 1.2);
 new CreateStore('Dubai', 11, 38, 3.7);
 new CreateStore('Lima', 2, 16, 4.6);
+new CreateStore('Paris', 20, 38, 2.3);
 
 
 // for (var i = 0; i < allStores.length; i++) {
