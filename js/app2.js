@@ -62,19 +62,19 @@ function generateTableHeader() {
   //make a tr
   var trEl = document.createElement('tr');
   //make a td filled with Name and append to tr
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Store Name';
-  trEl.appendChild(tdEl);
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Store Name';
+  trEl.appendChild(thEl);
   //make a loop to create th for each hour and append to tr
   for (var i = 0; i < hours.length; i++) {
-    var thEl = document.createElement('th');
+    thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
   //make a td to hold the word totals and append to tr
-  tdEl = document.createElement('td');
-  tdEl.textContent = 'Total Daily Cookies';
-  trEl.appendChild(tdEl);
+  thEl = document.createElement('th');
+  thEl.textContent = 'Total Daily Cookies';
+  trEl.appendChild(thEl);
   tableLocation.appendChild(trEl);
 }
 
@@ -85,12 +85,12 @@ CreateStore.prototype.generateTableBody = function () {
   var trEl = document.createElement('tr');
   tableLocation.appendChild(trEl);
   //create a td fill with this.name and append to tr
-  var tdEl = document.createElement('td');
-  tdEl.textContent = this.name;
-  trEl.appendChild(tdEl);
+  var thEl = document.createElement('th');
+  thEl.textContent = this.name;
+  trEl.appendChild(thEl);
   //create a for loop over this.cookiesSoldEachHour create a td and fill with cookiesSoldEachHour[i] then append to tr
   for (var i = 0; i < hours.length; i++) {
-    tdEl = document.createElement('td');
+    var tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesSoldEachHour[i];
     trEl.appendChild(tdEl);
   }

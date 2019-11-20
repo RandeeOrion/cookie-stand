@@ -16,10 +16,6 @@ h3 {
     font-size: 40pt;
 }
 
-table{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #3D4849;
-}
 
 #intro {
     font-size: 20px;
@@ -44,4 +40,54 @@ table{
     backgound: #786e54;
     font-size: 16px;
     color: #3D4849;
+}
+                
+table{
+    font-family: Verdana, Geneva,
+     Tahoma, sans-serif;
+    color: #3D4849;
+    width: 800px;
+    margin: auto;
+}
+
+th, td{
+    padding: 10px;
+    border: 1px solid #918d83;
+}
+
+
+th  {
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    text-align: center;
+}
+
+form, #formTitle {
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: darkolivegreen;
+}
+
+input, label {
+    padding: 10px;
+    color: darkolivegreen;
+}
+
+.storeName {
+    display: inline-block;
+}
+.minCustomers {
+    display: inline-block;
+}
+.maxCustomers {
+    display: inline-block;
+}
+.avg {
+    display: inline-block;
 }
