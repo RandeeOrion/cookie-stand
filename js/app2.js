@@ -4,6 +4,8 @@ var tableLocation = document.getElementById('storeSales');
 var allStores = [];
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
+
+
 function CreateStore(name, minCustomer, maxCustomer, avgCookie) {
   this.name = name;
   // console.log(name);
@@ -16,24 +18,22 @@ function CreateStore(name, minCustomer, maxCustomer, avgCookie) {
   this.calCustomersEachHour();
   this.calcCookiesSoldEachHour();
   allStores.push(this);
+
+  this.generateTableBody();
 }
 
 //this needs work.
-CreateStore.prototype.calcCookiesSoldEachHour = function () {
-  for (var i = 0; i < hours.length; i++) {
-    var cookiesForOneHour = this.avgCookie * this.customersEachHour[i];
-    cookiesForOneHour = Math.round(cookiesForOneHour);
-    this.cookiesSoldEachHour.push(cookiesForOneHour);
-
-    this.totalCookiesForTheDay += cookiesForOneHour;
-
-  }
-};
 
 
 function randomNumber(min, max) {
   return Math.round(Math.floor(Math.random() * (max - min)) + min);
 }
+
+// function addElement (childElType, childContent, parentEl) {
+//   var childElement = document.createElement(childElement);
+//   var childContent = 
+//   //Need the rest o this from front row
+
 
 CreateStore.prototype.calCustomersEachHour = function () {
   //generate a random number
@@ -46,13 +46,19 @@ CreateStore.prototype.calCustomersEachHour = function () {
   }
 };
 
+CreateStore.prototype.calcCookiesSoldEachHour = function () {
+  for (var i = 0; i < hours.length; i++) {
+    var cookiesForOneHour = this.avgCookie * this.customersEachHour[i];
+    cookiesForOneHour = Math.round(cookiesForOneHour);
+    this.cookiesSoldEachHour.push(cookiesForOneHour);
 
-new CreateStore('Seattle', 23, 65, 6.3);
-new CreateStore('Tokyo', 3, 24, 1.2);
-new CreateStore('Dubai', 11, 38, 3.7);
-new CreateStore('Lima', 2, 16,4.6);
+    this.totalCookiesForTheDay += cookiesForOneHour;
 
-function generateTableHeader(){
+  }
+};
+
+
+function generateTableHeader() {
   //make a tr
   var trEl = document.createElement('tr');
   //make a td filled with Name and append to tr
@@ -60,8 +66,8 @@ function generateTableHeader(){
   tdEl.textContent = 'Store Name';
   trEl.appendChild(tdEl);
   //make a loop to create th for each hour and append to tr
-  for (var i = 0; i < hours.length; i++){
-    var thEl  = document.createElement('th');
+  for (var i = 0; i < hours.length; i++) {
+    var thEl = document.createElement('th');
     thEl.textContent = hours[i];
     trEl.appendChild(thEl);
   }
@@ -72,13 +78,15 @@ function generateTableHeader(){
   tableLocation.appendChild(trEl);
 }
 
-CreateStore.prototype.generateTableBody = function(){
+generateTableHeader();
+
+CreateStore.prototype.generateTableBody = function () {
   //create tr append to table
   var trEl = document.createElement('tr');
   tableLocation.appendChild(trEl);
   //create a td fill with this.name and append to tr
   var tdEl = document.createElement('td');
-  tdEl.textContent=this.name;
+  tdEl.textContent = this.name;
   trEl.appendChild(tdEl);
   //create a for loop over this.cookiesSoldEachHour create a td and fill with cookiesSoldEachHour[i] then append to tr
   for (var i = 0; i < hours.length; i++) {
@@ -90,36 +98,44 @@ CreateStore.prototype.generateTableBody = function(){
   tdEl = document.createElement('td');
   tdEl.textContent = this.totalCookiesForTheDay;
   trEl.appendChild(tdEl);
+  
+}
 
-};
+new CreateStore('Seattle', 23, 65, 6.3);
+new CreateStore('Tokyo', 3, 24, 1.2);
+new CreateStore('Dubai', 11, 38, 3.7);
+new CreateStore('Lima', 2, 16, 4.6);
 
-generateTableHeader();
 
-
-// //tablefooter
-// //run through each hour.length
-// function createFooter(){
-//   var trEl = document.createElement('tr');
-//   var tdEl = document.createElement('td');
-//   tdEl = document.textContent = 'Hourly Totals';
-//   trEl.appendChild(tdEl);
-//   for (var i = 0; i < hours.length; i++ ){
-//     var hourlyTotalsEquals = 0
-//     tdEl = document.createElement('td');
-//     //run through allStores.length
-//     for (var j = 0; j < allStores.length; i++){
-//     //add each i for each j
-//       hourlyTotalsEquals += CreateStore.allStores[j].cookiesSoldEachHour[i];
-//       tdEl.textContent = hourlyTotalsEquals;
-//       trEl.appendChild(tdEl);
-//     }
-//   }
-//   tableLocation.appendChild(trEl);
+// for (var i = 0; i < allStores.length; i++) {
+//   allStores[i].generateTableBody();
 // }
 
-// createFooter();
+//bookmark the DOM at userForm and addEventListener 
 
 
+
+var formLocation = document.getElementById('userForm');
+formLocation.addEventListener("submit", handleSubmit);
+
+//take in the form submissions
+//
+function handleSubmit(event) {
+  event.preventDefault();
+  var newName = event.target.newStoreName.value;
+  var newMinCust = parseInt(event.target.formMinCustomers.value, 10);
+  var newMaxCust = parseInt(event.target.formMaxCustomers.value, 10);
+  var newAvgCookie = parseInt(event.target.formAvgCookie.value, 10);
+  console.log ('type of newAvgCookie', typeof newAvgCookie);
+  new CreateStore(newName, newMinCust, newMaxCust, newAvgCookie);
+  console.log (new CreateStore);
+
+  formLocation.reset();
+}
+//use form Submissions  as arguments for this.generateTableBody
+
+
+// create if else to create alerts if boxes are empty or not filled properly can also create an iff statment to input a positive number  minCust < 0 || maxCust < 0 || avgCust < 0 
 
 
 
