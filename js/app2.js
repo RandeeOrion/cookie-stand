@@ -29,11 +29,11 @@ function randomNumber(min, max) {
   return Math.round(Math.floor(Math.random() * (max - min)) + min);
 }
 
-function addElement (childElType, childContent, parentEl) {
-  var childElement = document.createElement(childElement);
-  var childContent = 
-  //Need the rest o this from front row
-}
+// function addElement (childElType, childContent, parentEl) {
+//   var childElement = document.createElement(childElement);
+//   var childContent = 
+//   //Need the rest o this from front row
+
 
 CreateStore.prototype.calCustomersEachHour = function () {
   //generate a random number
