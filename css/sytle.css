@@ -1,6 +1,7 @@
 body{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: #918d83;
+    background: #f8f8ff;
 }
 
 h1{
@@ -21,7 +22,7 @@ table{
 }
 
 #intro {
-    
+    font-size: 20px;
 }
 
 .hours {
@@ -37,4 +38,10 @@ table{
     height: 400px;
 }
 
-
+#navBar {
+    display: block;
+    width: 40px;
+    backgound: #786e54;
+    font-size: 16px;
+    color: #3D4849;
+}
