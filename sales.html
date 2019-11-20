@@ -8,11 +8,16 @@
     <link rel="stylesheet" href="css/sytle.css">
 </head>
 <body>
+    <header>
+        <img class="logo" src="/img/Design.png" alt="Black and white salmon">
+        <h1 class="logo">biscuits au saumon</h1>
+    </header>
     <section id="navBar">
         <ul>
             <li> <a href="index.html">Home</a></li>
             <li> <a href="merch.html">Merchandise</a></li>
             <li><a href="sales.html">Sales</a></li>
+            <li><a href="aboutUs.html">About Us</a></li>
         </ul>
     </section>
     <main>
@@ -21,18 +26,18 @@
 
             </tbody>
         </table>
-        <h2>forms</h2>
+        <h2 id="formTitle">New Store Form</h2>
         <form id='userForm'>
             <fieldset>
                 <!-- look up fieldset and why it is important to always use -->
-                <label> Store Name </label>
-                <input id="newStoreName" type="text" placeholder='type name here...'>
-                <label> Minimum Hourly Customers</label>
-                <input id="formMinCustomers"type="number" placeholder="digit numbers only">
-                <label> Maximum Hourly Customers </label>
-                <input id="formMaxCustomers" type="number" placeholder="digit numbers only">
-                <label>Average Cookies Per Customer</label>
-                <input id="formAvgCookie" type="number" placeholder="digit number only">
+                <label class="storeName"> Store Name </label>
+                <input class="storeName" id="newStoreName" type="text" placeholder='type name here...'>
+                <label class="minCustomers"> Minimum Hourly Customers</label>
+                <input class="minCustomers" id="formMinCustomers"type="number" placeholder="digit numbers only">
+                <label class="maxCustomers" > Maximum Hourly Customers </label>
+                <input class="maxCustomers" id="formMaxCustomers" type="number" placeholder="digit numbers only">
+                <label class="avg">Average Cookies Per Customer</label>
+                <input class="avg" id="formAvgCookie" type="number" placeholder="digit number only">
                 <button value="submit">Submit</button>
             </fieldset>
         </form>
