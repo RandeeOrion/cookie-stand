@@ -5,8 +5,8 @@ body{
 }
 
 .logo{
-    margin: 0px auto;
-    width: 960px;
+    margin: 0px, 20px;
+    width: 80%;
     display: inline-block;
     background-color: white;
     text-align: center;
@@ -22,6 +22,8 @@ h3 {
     font-family: 'Shadows Into Light', cursive;
     color: #786e54;
     font-size: 40pt;
+    margin: 10px;
+    text-align: center;
 }
 
 main {
@@ -120,4 +122,15 @@ input, label {
 }
 .avg {
     display: inline-block;
+}
+
+#family, #bio{
+    width: 80%;
+    margin: 20px;
+}
+
+.merchP {
+    width: 80%;
+    margin: 20px;
+    padding: 20px;
 }
