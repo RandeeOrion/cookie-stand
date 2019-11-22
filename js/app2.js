@@ -98,8 +98,32 @@ CreateStore.prototype.generateTableBody = function () {
   tdEl = document.createElement('td');
   tdEl.textContent = this.totalCookiesForTheDay;
   trEl.appendChild(tdEl);
-  
 }
+//create footer row
+var createFooterRow = function () {
+  //create trEl and tdEl Variables  
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  //write 'hourly totals' in the first td and append to trEl
+  tdEl.textContent = 'Hourly Totals: ';
+  trEl.appendChild(tdEl);
+  //create a for loop that loops over this.hours.length
+  for (var i = 0; i < hours.length; i++) {
+    var storeHourlyTotals = 0;
+    //create a variable storesHourlyTotals to 0   
+    //create a second for loop, j, that loops over this.allStores
+    for (var j = 0; j < allStores.length; i++){storeHourlyTotals += allStores[j].cookiesSoldEachHour;}
+    //tdEl text content storesHourlyTotals
+    tdEl.textContent = storeHourlyTotals;
+    trEl.appendChild(tdEl);
+  }
+
+  tdEl.textContent = storeHourlyTotals;
+  trEl.appendChild(tdEl);
+  tableLocation.appendChild(trEl);
+};
+
+createFooterRow();
 
 new CreateStore('Seattle', 23, 65, 6.3);
 new CreateStore('Tokyo', 3, 24, 1.2);
